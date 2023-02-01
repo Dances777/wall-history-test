@@ -1,7 +1,7 @@
 # Установка
 
 1. Скачать файлы:
-   `https://github.com/likont/wall-history-testing.git`
+   `https://github.com/max-prot/wall-history-testing.git`
 
 2. Переместить в директорию, где удобно хранить файлы.
 
