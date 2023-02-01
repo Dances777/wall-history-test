@@ -25,7 +25,7 @@ class SiteController extends Controller
             ],
         ];
     }
-    
+
     public function behaviors()
     {
         return [
@@ -48,7 +48,7 @@ class SiteController extends Controller
 
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
             try {
-                $post = Post::make($form->author, $form->message, Yii::$app->request->userIP);
+                $post = Post::make(Yii::$app->user->id, $form->author, $form->message, Yii::$app->request->userIP);
                 $post->save(false);
                 Yii::$app->session->setFlash('success', 'Пост успешно добавлен!');
                 return $this->refresh();
@@ -61,7 +61,7 @@ class SiteController extends Controller
         return $this->render('index', [
             'model' => $form,
             'dataProvider' => new ActiveDataProvider([
-                'query' => Post::find(),
+                'query' => Post::find()->where(['user_id' => Yii::$app->user->id]),
                 'sort' => ['defaultOrder' => ['created_at' => SORT_DESC]],
                 'pagination' => [
                     'pageSize' => false,
@@ -101,7 +101,7 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-    
+
     public function actionLogout()
     {
         Yii::$app->user->logout();

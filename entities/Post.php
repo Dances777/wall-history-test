@@ -9,6 +9,7 @@ use yii\helpers\Html;
 
 /**
  * @property int $id
+ * @property string $user_id
  * @property string $author
  * @property string $message
  * @property string $ip
@@ -16,9 +17,10 @@ use yii\helpers\Html;
  */
 class Post extends ActiveRecord
 {
-    public static function make($author, $message, $ip)
+    public static function make($userId, $author, $message, $ip)
     {
         $entity = new static();
+        $entity->user_id = $userId;
         $entity->author = $author;
         $entity->message = $message;
         $entity->ip = $ip;
