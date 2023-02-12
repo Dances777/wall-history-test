@@ -1,11 +1,11 @@
 # Установка
 
 1. Скачать файлы:
-   `https://github.com/max-prot/wall-history-testing.git`
+   `https://github.com/max-prot/wall-history-test.git`
 
 2. Переместить в директорию, где удобно хранить файлы.
 
-   **ИЛИ** перейдите в созданную с помощью git директорию: `cd wall-history-testing`
+   **ИЛИ** перейдите в созданную с помощью git директорию: `cd wall-history-test`
 
 3. Установить зависимости:
 
